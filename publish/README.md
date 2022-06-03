@@ -22,7 +22,7 @@ By default following structures let player projectiles pass:
 - Cage Wall 2x2
 - Iron gate
 
-There are also two settings to change the smoke size:
+Additional settings:
 
 - Debug print: If enabled, debug information is printed to the console when projectiles hit something (projectile id, projectile size, target id).
 - Max size: If set, only smaller projectiles can ignore collision. Useful if you want only arrows to ignore collision.
