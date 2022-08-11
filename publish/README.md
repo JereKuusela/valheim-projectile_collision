@@ -1,14 +1,10 @@
 # Projectile collision
 
-Client side mod that makes projectiles to ignore certain structures.
+Makes projectiles to ignore certain structures.
 
-The configuration can synced by also installing on the server.
+Install on the client (modding [guide](https://youtu.be/L9ljm2eKLrk)).
 
-# Manual Installation:
-
-1. Install the [BepInExPack Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/).
-2. Download the latest zip.
-3. Extract it in the \<GameDirectory\>\BepInEx\plugins\ folder.
+Install on the server if want to sync the config.
 
 # Configuration
 
@@ -29,6 +25,9 @@ Additional settings:
 - Player only: If disabled, enemy projectiles can also ignore collision.
 
 # Changelog
+
+- v1.1
+	- Changes the GUID.
 
 - v1.0
 	- Initial release.

@@ -1,19 +1,33 @@
-﻿using BepInEx;
+﻿using System.IO;
+using BepInEx;
 using HarmonyLib;
 using UnityEngine;
 namespace SmokeCollision;
-[BepInPlugin("valheim.jere.projectile_collision", "ProjectileCollision", "1.0.0.0")]
+[BepInPlugin(GUID, NAME, VERSION)]
 public class SmokeCollision : BaseUnityPlugin {
-  ServerSync.ConfigSync ConfigSync = new("valheim.jere.projectile_collision")
+  public const string LEGACY_GUID = "valheim.jere.projectile_collision";
+  public const string GUID = "projectile_collision";
+  public const string NAME = "Projectile Collision";
+  public const string VERSION = "1.1";
+  ServerSync.ConfigSync ConfigSync = new(GUID)
   {
-    DisplayName = "ProjectileCollision",
-    CurrentVersion = "1.0.0",
-    MinimumRequiredVersion = "1.0.0"
+    DisplayName = NAME,
+    CurrentVersion = VERSION,
+    MinimumRequiredVersion = VERSION
   };
+  private void MigrateConfig() {
+    var legacyConfig = Path.Combine(Path.GetDirectoryName(Config.ConfigFilePath), $"{LEGACY_GUID}.cfg");
+    if (!File.Exists(legacyConfig)) return;
+    var config = Path.Combine(Path.GetDirectoryName(Config.ConfigFilePath), $"{GUID}.cfg");
+    if (File.Exists(config))
+      File.Delete(legacyConfig);
+    else
+      File.Move(legacyConfig, config);
+  }
   public void Awake() {
+    MigrateConfig();
     Configuration.Init(ConfigSync, Config);
-    Harmony harmony = new("valheim.jere.projectile_collision");
-    harmony.PatchAll();
+    new Harmony(GUID).PatchAll();
   }
 }
 
