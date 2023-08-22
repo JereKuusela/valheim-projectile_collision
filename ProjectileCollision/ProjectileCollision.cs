@@ -3,26 +3,29 @@ using HarmonyLib;
 using UnityEngine;
 namespace SmokeCollision;
 [BepInPlugin(GUID, NAME, VERSION)]
-public class SmokeCollision : BaseUnityPlugin {
-  public const string LEGACY_GUID = "valheim.jere.projectile_collision";
+public class SmokeCollision : BaseUnityPlugin
+{
   public const string GUID = "projectile_collision";
   public const string NAME = "Projectile Collision";
-  public const string VERSION = "1.2";
+  public const string VERSION = "1.3";
   ServerSync.ConfigSync ConfigSync = new(GUID)
   {
     DisplayName = NAME,
     CurrentVersion = VERSION,
     MinimumRequiredVersion = VERSION
   };
-  public void Awake() {
+  public void Awake()
+  {
     Configuration.Init(ConfigSync, Config);
     new Harmony(GUID).PatchAll();
   }
 }
 
 [HarmonyPatch(typeof(Projectile), nameof(Projectile.OnHit))]
-public class Projectile_OnHit {
-  static bool Prefix(Collider collider, Projectile __instance) {
+public class Projectile_OnHit
+{
+  static bool Prefix(Collider collider, Projectile __instance)
+  {
     if (!collider) return true;
     var owner = __instance.m_owner;
     if (Configuration.PlayerOnly && (!owner || !owner.IsPlayer())) return true;
@@ -32,7 +35,8 @@ public class Projectile_OnHit {
     return true;
   }
 
-  static void Finalizer(Collider collider, Projectile __instance) {
+  static void Finalizer(Collider collider, Projectile __instance)
+  {
     if (!Configuration.DebugPrint) return;
     var obj = Utils.GetPrefabName(collider.gameObject.transform.root.gameObject);
     var hitting = __instance.m_didHit ? "hitting" : "ignoring";

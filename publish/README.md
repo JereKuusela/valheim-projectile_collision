@@ -6,7 +6,7 @@ Install on the client (modding [guide](https://youtu.be/L9ljm2eKLrk)).
 
 Install on the server if want to sync the config.
 
-# Configuration
+## Configuration
 
 The config file has a list of object ids that are ignored by projectiles. Check [here](https://valheim.fandom.com/wiki/Item_IDs) for object ids.
 
@@ -24,17 +24,8 @@ Additional settings:
 - Max size: If set, only smaller projectiles can ignore collision. Useful if you want only arrows to ignore collision.
 - Player only: If disabled, enemy projectiles can also ignore collision.
 
+## Credits
+
 Sources: [GitHub](https://github.com/JereKuusela/valheim-projectile_collision)
 
 Donations: [Buy me a computer](https://www.buymeacoffee.com/jerekuusela)
-
-# Changelog
-
-- v1.2
-	- Fixes the black screen.
-
-- v1.1
-	- Changes the GUID.
-
-- v1.0
-	- Initial release.
