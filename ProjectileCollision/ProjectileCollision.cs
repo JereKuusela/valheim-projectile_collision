@@ -7,7 +7,7 @@ public class SmokeCollision : BaseUnityPlugin
 {
   public const string GUID = "projectile_collision";
   public const string NAME = "Projectile Collision";
-  public const string VERSION = "1.6";
+  public const string VERSION = "1.7";
   readonly ServerSync.ConfigSync ConfigSync = new(GUID)
   {
     DisplayName = NAME,

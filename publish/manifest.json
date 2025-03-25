@@ -1,6 +1,6 @@
 {
   "name": "Projectile_Collision",
-  "version_number": "1.6.0",
+  "version_number": "1.7.0",
   "website_url": "https://github.com/JereKuusela/valheim-projectile_collision",
   "description": "Allows arrows to pass through iron cage floors and other similar structures.",
   "dependencies": [
