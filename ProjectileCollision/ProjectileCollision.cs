@@ -2,12 +2,13 @@
 using HarmonyLib;
 using UnityEngine;
 namespace SmokeCollision;
+
 [BepInPlugin(GUID, NAME, VERSION)]
 public class SmokeCollision : BaseUnityPlugin
 {
   public const string GUID = "projectile_collision";
   public const string NAME = "Projectile Collision";
-  public const string VERSION = "1.7";
+  public const string VERSION = "1.9";
   readonly ServerSync.ConfigSync ConfigSync = new(GUID)
   {
     DisplayName = NAME,

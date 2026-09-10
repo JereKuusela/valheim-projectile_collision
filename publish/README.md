@@ -8,7 +8,7 @@ Install on the server if want to sync the config.
 
 ## Configuration
 
-The config file has a list of object ids that are ignored by projectiles. Check [here](https://valheim.fandom.com/wiki/Item_IDs) for object ids.
+The config file has a list of object ids that are ignored by projectiles. Check [here](https://valheim.wiki/Item_IDs) for object ids.
 
 By default following structures let player projectiles pass:
 
